@@ -7,11 +7,33 @@ router.use(express.json());
 
 // Index Route
 router.get('/', (req, res) => {
-    res.status(200).send('Hello World');
+    res.status(200).send('Yeeeppiiiii it is Working!');
 });
 
+// Create Task
+router.post('/createTask/', async (req, res) => {
+    try {
+        const task = await Task.create(req.body);
+        res.status(201).json(task);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+
+// Get All Tasks
+router.get('/getAllTasks/', async (req, res) => {
+    try {
+        const tasks = await Task.findAll();
+        res.status(200).json(tasks);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+
+// --------------------------------------------- Tests ---------------------------------------------
+
 // Create Task Fixed
-router.post('/createTask1/', async (req, res) => {
+router.post('/createTest/', async (req, res) => {
     try {
         const task = await Task.create({
             description: "saas",
@@ -23,18 +45,8 @@ router.post('/createTask1/', async (req, res) => {
     }
 });
 
-// Create Task Using Request Body
-router.post('/createTask2/', async (req, res) => {
-    try {
-        const task = await Task.create(req.body);
-        res.status(201).json(task);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
-
 // Print Request Body
-router.post('/createTask3/', async (req, res) => {
+router.post('/bodyTest/', async (req, res) => {
     try {
         console.log(req.body);
     } catch (error) {

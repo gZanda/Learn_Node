@@ -3,7 +3,6 @@
 const express = require('express');
 const router = require('./router');
 const database = require('./database/db');
-const taskModel = require('./database/models/taskModel');
 router.use(express.json());
 
 const app = express();
