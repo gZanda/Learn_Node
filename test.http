@@ -2,13 +2,13 @@ POST http://localhost:3333/createTask/
 Content-Type: application/json
 
 {
-    "description": "Teste 3",
+    "description": "Teste 4",
     "completed": true
 }
 
 ###
 
-GET http://localhost:3333/getAllTasks/
+GET http://localhost:3333/getAllTasksController/
 Content-Type: application/json
 
 {}

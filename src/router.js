@@ -3,7 +3,11 @@
 const express = require('express');
 const router = express.Router();
 const Task = require('./database/models/taskModel');
+const taskController = require('./controller/taskController');
 router.use(express.json());
+
+//  Controller getAll
+router.get('/getAllTasksController/', taskController.getAll);
 
 // Index Route
 router.get('/', (req, res) => {
