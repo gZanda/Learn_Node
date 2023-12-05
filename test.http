@@ -1,0 +1,9 @@
+POST http://localhost:3333/createTask2/
+Content-Type: application/json
+
+{
+    "description": "Teste 1",
+    "completed": false
+}
+
+///
